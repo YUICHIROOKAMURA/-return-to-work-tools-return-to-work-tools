@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>復職準備ワークシート</title>
+    <style>
+        body {
+            font-family: 'Yu Gothic', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .large-textarea {
+            min-height: 120px;
+        }
+        .download-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 10px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+        .info-box {
+            background-color: #e8f4f8;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #0c5460;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        .qa-pair {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+        }
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .tip-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .tip-box h4 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+        .tip-box p {
+            margin: 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>復職準備ワークシート</h1>
+        
+        <div class="info-box">
+            <p>復職時の円滑なコミュニケーションのための準備シートです。上司や同僚との話し合いで使用する内容を事前に整理しておきましょう。</p>
+        </div>
+
+        <form id="communicationForm">
+            <!-- 基本情報 -->
+            <div class="section">
+                <h2>基本情報</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="name">氏名</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">記入日</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="department">所属部署</label>
+                        <input type="text" id="department" name="department">
+                    </div>
+                    <div class="form-group">
+                        <label for="return-date">復職予定日</label>
+                        <input type="date" id="return-date" name="return-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 復職理由・状況説明の準備 -->
+            <div class="section">
+                <h2>1. 復職理由・状況説明の準備</h2>
+                
+                <div class="form-group">
+                    <label for="return-reason">復職理由（簡潔に）</label>
+                    <textarea id="return-reason" name="return-reason" placeholder="例：体調が回復し、医師からも復職の許可をいただきました。段階的に業務に復帰していきたいと思います。"></textarea>
+                    <div class="tip-box">
+                        <h4>💡 ポイント</h4>
+                        <p>具体的な病名を詳しく説明する必要はありません。「医師の許可」「体調の回復」といった前向きな表現を使いましょう。</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="current-condition">現在の体調・状態</label>
+                    <textarea id="current-condition" name="current-condition" placeholder="例：休職前と比べて体調は安定しており、集中力も回復してきています。ただし、長時間の作業はまだ負担に感じることがあります。"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="gratitude-message">感謝の気持ち</label>
+                    <textarea id="gratitude-message" name="gratitude-message" placeholder="例：休職中は皆様にご迷惑をおかけしました。サポートしていただき、ありがとうございました。"></textarea>
+                </div>
+            </div>
+
+            <!-- 配慮のお願い事項 -->
+            <div class="section">
+                <h2>2. 配慮のお願い事項</h2>
+                
+                <div class="form-group">
+                    <label for="accommodation-requests">具体的な配慮のお願い</label>
+                    <textarea id="accommodation-requests" name="accommodation-requests" class="large-textarea" placeholder="例：
+・当面は残業を控えさせていただきたい
+・定期的な面談の機会をいただきたい
+・業務量の調整をお願いしたい
+・段階的な業務復帰を希望します"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="communication-preference">コミュニケーションの希望</label>
+                    <textarea id="communication-preference" name="communication-preference" placeholder="例：何か気になることがあれば、遠慮なくお声かけください。定期的に相談させていただければと思います。"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="gradual-return-plan">段階的復職の希望スケジュール</label>
+                    <textarea id="gradual-return-plan" name="gradual-return-plan" class="large-textarea" placeholder="例：
+【1ヶ月目】勤務時間短縮（9-16時）、業務量50%
+【2ヶ月目】勤務時間延長（9-17時）、業務量70%
+【3ヶ月目】通常勤務、業務量100%"></textarea>
+                </div>
+            </div>
+
+            <!-- 想定質問と回答準備 -->
+            <div class="section">
+                <h2>3. 想定質問と回答準備</h2>
+                
+                <div class="qa-pair">
+                    <div class="question">Q: 体調はもう大丈夫ですか？</div>
+                    <div class="form-group">
+                        <textarea name="qa-health" placeholder="回答例：医師からも復職の許可をいただき、体調は安定しています。無理をせず、段階的に業務に復帰していきたいと思います。"></textarea>
+                    </div>
+                </div>
+
+                <div class="qa-pair">
+                    <div class="question">Q: 前と同じように働けますか？</div>
+                    <div class="form-group">
+                        <textarea name="qa-capacity" placeholder="回答例：当面は業務量や時間の調整をお願いしたいと思いますが、段階的に通常業務に戻していく予定です。"></textarea>
+                    </div>
+                </div>
+
+                <div class="qa-pair">
+                    <div class="question">Q: 何かサポートが必要ですか？</div>
+                    <div class="form-group">
+                        <textarea name="qa-support" placeholder="回答例：定期的な面談や業務の優先順位について相談させていただければありがたいです。"></textarea>
+                    </div>
+                </div>
+
+                <div class="qa-pair">
+                    <div class="question">Q: チームメンバーに何か伝えることはありますか？</div>
+                    <div class="form-group">
+                        <textarea name="qa-team" placeholder="回答例：段階的に復帰していく予定です。ご迷惑をおかけすることもあるかもしれませんが、よろしくお願いします。"></textarea>
+                    </div>
+                </div>
+
+                <div class="qa-pair">
+                    <div class="question">Q: 再発の心配はありませんか？</div>
+                    <div class="form-group">
+                        <textarea name="qa-relapse" placeholder="回答例：休職中に対処法を学び、定期的に医師とも相談しています。早期発見・対応に努めます。"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="other-questions">その他の想定質問と回答</label>
+                    <textarea id="other-questions" name="other-questions" class="large-textarea" placeholder="質問：
+回答：
+
+質問：
+回答："></textarea>
+                </div>
+            </div>
+
+            <!-- 報告・連絡体制 -->
+            <div class="section">
+                <h2>4. 報告・連絡体制</h2>
+                
+                <div class="form-group">
+                    <label for="reporting-schedule">定期報告のスケジュール</label>
+                    <select id="reporting-schedule" name="reporting-schedule">
+                        <option value="">選択してください</option>
+                        <option value="daily">毎日（終業時）</option>
+                        <option value="weekly">週1回（金曜日等）</option>
+                        <option value="biweekly">2週間に1回</option>
+                        <option value="monthly">月1回</option>
+                        <option value="as-needed">必要に応じて</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reporting-method">報告方法・内容</label>
+                    <textarea id="reporting-method" name="reporting-method" placeholder="例：
+・体調の変化
+・業務の進捗状況
+・困っていること
+・改善されたこと"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergency-contact">体調不良時の連絡方法</label>
+                    <textarea id="emergency-contact" name="emergency-contact" placeholder="例：体調不良の場合は、始業時間前に直属の上司に電話連絡いたします。連絡先：○○○-○○○○-○○○○"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-persons">主な連絡・相談相手</label>
+                    <textarea id="contact-persons" name="contact-persons" placeholder="例：
+【直属の上司】田中部長（業務全般）
+【人事担当】佐藤さん（制度・手続き）
+【同僚】山田さん（日常的な相談）"></textarea>
+                </div>
+            </div>
+
+            <!-- 職場復帰初日の準備 -->
+            <div class="section">
+                <h2>5. 職場復帰初日の準備</h2>
+                
+                <div class="form-group">
+                    <label for="first-day-greeting">初日の挨拶内容</label>
+                    <textarea id="first-day-greeting" name="first-day-greeting" class="large-textarea" placeholder="例：
+おはようございます。本日より復職させていただきます○○です。
+休職中は皆様にご迷惑をおかけし、申し訳ございませんでした。
+体調も回復し、段階的に業務に復帰してまいります。
+ご不便をおかけすることもあるかと思いますが、
+どうぞよろしくお願いいたします。"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="first-day-tasks">初日に予定している業務・活動</label>
+                    <textarea id="first-day-tasks" name="first-day-tasks" placeholder="例：
+・上司との面談（30分）
+・チームメンバーへの挨拶回り
+・メール確認・整理
+・業務引き継ぎ資料の確認
+・今後のスケジュール相談"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="first-week-goals">復職初週の目標</label>
+                    <textarea id="first-week-goals" name="first-week-goals" placeholder="例：
+・職場環境に慣れる
+・業務の現状把握
+・同僚とのコミュニケーション再開
+・体調管理のリズム確立"></textarea>
+                </div>
+            </div>
+
+            <!-- 継続的なコミュニケーション計画 -->
+            <div class="section">
+                <h2>6. 継続的なコミュニケーション計画</h2>
+                
+                <div class="form-group">
+                    <label for="feedback-request">上司・同僚からのフィードバック希望</label>
+                    <textarea id="feedback-request" name="feedback-request" placeholder="例：
+・業務の進め方で改善点があれば教えてください
+・体調面で気になることがあれば遠慮なくお声かけください
+・業務量が適切かどうか定期的に確認したいです"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="communication-challenges">コミュニケーションで不安なこと</label>
+                    <textarea id="communication-challenges" name="communication-challenges" placeholder="例：
+・休職理由について詳しく聞かれること
+・以前と比べて能力が落ちていると思われること
+・チームの迷惑になっているのではないかという心配"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="communication-strategies">コミュニケーション改善策</label>
+                    <textarea id="communication-strategies" name="communication-strategies" placeholder="例：
+・積極的に「ありがとう」を伝える
+・困った時は早めに相談する
+・定期的に体調や業務状況を報告する
+・チームの雰囲気作りに貢献する"></textarea>
+                </div>
+            </div>
+        </form>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button type="button" class="download-btn" onclick="downloadAsWord()">Word形式でダウンロード</button>
+        </div>
+    </div>
+
+    <script>
+        // 今日の日付を自動設定
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+
+        function downloadAsWord() {
+            // フォームデータを収集
+            const formData = new FormData(document.getElementById('communicationForm'));
+
+            // WordドキュメントのHTMLを構築
+            let wordContent = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>復職準備ワークシート</title>
+                    <style>
+                        body { font-family: 'Yu Gothic', 'MS Gothic', sans-serif; line-height: 1.6; margin: 40px; }
+                        h1 { text-align: center; color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+                        h2 { color: #34495e; border-left: 4px solid #3498db; padding-left: 15px; margin-top: 30px; }
+                        h3 { color: #2c3e50; margin-top: 20px; }
+                        .form-section { margin-bottom: 25px; page-break-inside: avoid; }
+                        .form-item { margin-bottom: 15px; }
+                        .label { font-weight: bold; color: #2c3e50; }
+                        .value { border-bottom: 1px solid #bdc3c7; min-height: 20px; padding: 5px 0; }
+                        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+                        td { padding: 8px; border: 1px solid #bdc3c7; }
+                        .qa-pair { background-color: #f8f9fa; padding: 10px; margin: 10px 0; border-radius: 4px; border-left: 4px solid #3498db; }
+                        .question { font-weight: bold; color: #2c3e50; }
+                    </style>
+                </head>
+                <body>
+                    <h1>復職準備ワークシート</h1>
+                    
+                    <div class="form-section">
+                        <h2>基本情報</h2>
+                        <table>
+                            <tr><td class="label">氏名</td><td class="value">${formData.get('name') || ''}</td></tr>
+                            <tr><td class="label">記入日</td><td class="value">${formData.get('date') || ''}</td></tr>
+                            <tr><td class="label">所属部署</td><td class="value">${formData.get('department') || ''}</td></tr>
+                            <tr><td class="label">復職予定日</td><td class="value">${formData.get('return-date') || ''}</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>1. 復職理由・状況説明の準備</h2>
+                        <div class="form-item">
+                            <div class="label">復職理由：</div>
+                            <div class="value">${(formData.get('return-reason') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">現在の体調・状態：</div>
+                            <div class="value">${(formData.get('current-condition') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">感謝の気持ち：</div>
+                            <div class="value">${(formData.get('gratitude-message') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>2. 配慮のお願い事項</h2>
+                        <div class="form-item">
+                            <div class="label">具体的な配慮のお願い：</div>
+                            <div class="value">${(formData.get('accommodation-requests') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">コミュニケーションの希望：</div>
+                            <div class="value">${(formData.get('communication-preference') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">段階的復職の希望スケジュール：</div>
+                            <div class="value">${(formData.get('gradual-return-plan') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>3. 想定質問と回答準備</h2>
+                        <div class="qa-pair">
+                            <div class="question">Q: 体調はもう大丈夫ですか？</div>
+                            <div class="value">${(formData.get('qa-health') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="qa-pair">
+                            <div class="question">Q: 前と同じように働けますか？</div>
+                            <div class="value">${(formData.get('qa-capacity') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="qa-pair">
+                            <div class="question">Q: 何かサポートが必要ですか？</div>
+                            <div class="value">${(formData.get('qa-support') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="qa-pair">
+                            <div class="question">Q: チームメンバーに何か伝えることはありますか？</div>
+                            <div class="value">${(formData.get('qa-team') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="qa-pair">
+                            <div class="question">Q: 再発の心配はありませんか？</div>
+                            <div class="value">${(formData.get('qa-relapse') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">その他の想定質問と回答：</div>
+                            <div class="value">${(formData.get('other-questions') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>4. 報告・連絡体制</h2>
+                        <div class="form-item">
+                            <div class="label">定期報告のスケジュール：</div>
+                            <div class="value">${formData.get('reporting-schedule') || ''}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">報告方法・内容：</div>
+                            <div class="value">${(formData.get('reporting-method') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">体調不良時の連絡方法：</div>
+                            <div class="value">${(formData.get('emergency-contact') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">主な連絡・相談相手：</div>
+                            <div class="value">${(formData.get('contact-persons') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>5. 職場復帰初日の準備</h2>
+                        <div class="form-item">
+                            <div class="label">初日の挨拶内容：</div>
+                            <div class="value">${(formData.get('first-day-greeting') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">初日に予定している業務・活動：</div>
+                            <div class="value">${(formData.get('first-day-tasks') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">復職初週の目標：</div>
+                            <div class="value">${(formData.get('first-week-goals') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>6. 継続的なコミュニケーション計画</h2>
+                        <div class="form-item">
+                            <div class="label">上司・同僚からのフィードバック希望：</div>
+                            <div class="value">${(formData.get('feedback-request') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">コミュニケーションで不安なこと：</div>
+                            <div class="value">${(formData.get('communication-challenges') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">コミュニケーション改善策：</div>
+                            <div class="value">${(formData.get('communication-strategies') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // BOMを追加してUTF-8エンコーディングを明示
+            const BOM = '\uFEFF';
+            const blob = new Blob([BOM + wordContent], {
+                type: 'application/msword;charset=utf-8'
+            });
+            
+            // ダウンロードリンクを作成
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `復職準備ワークシート_${formData.get('name') || '未記入'}_${formData.get('date') || new Date().toISOString().split('T')[0]}.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

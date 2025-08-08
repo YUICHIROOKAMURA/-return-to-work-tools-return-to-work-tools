@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職場環境調整チェックリスト</title>
+    <style>
+        body {
+            font-family: 'Yu Gothic', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .large-textarea {
+            min-height: 120px;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 12px;
+            background-color: white;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+            transition: all 0.2s ease;
+        }
+        .checkbox-item:hover {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            margin-top: 3px;
+        }
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .priority-high {
+            border-left: 4px solid #e74c3c;
+            background-color: #fff5f5;
+        }
+        .priority-medium {
+            border-left: 4px solid #f39c12;
+            background-color: #fffbf0;
+        }
+        .priority-low {
+            border-left: 4px solid #27ae60;
+            background-color: #f0fff4;
+        }
+        .priority-legend {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-radius: 4px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        .legend-high { background-color: #e74c3c; }
+        .legend-medium { background-color: #f39c12; }
+        .legend-low { background-color: #27ae60; }
+        .download-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 10px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #c0392b;
+        }
+        .info-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #856404;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .two-column, .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            .priority-legend {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        .summary-section {
+            background-color: #e8f5e8;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .summary-section h3 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>職場環境調整チェックリスト</h1>
+        
+        <div class="info-box">
+            <p>復職時に必要な職場環境の調整事項を整理するためのチェックリストです。必要な項目にチェックを入れて、上司や人事担当者との相談に活用してください。</p>
+        </div>
+
+        <div class="priority-legend">
+            <div class="legend-item">
+                <div class="legend-color legend-high"></div>
+                <span>高優先度（必須）</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-medium"></div>
+                <span>中優先度（推奨）</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-low"></div>
+                <span>低優先度（希望）</span>
+            </div>
+        </div>
+
+        <form id="checklistForm">
+            <!-- 基本情報 -->
+            <div class="section">
+                <h2>基本情報</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="name">氏名</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">記入日</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="department">所属部署</label>
+                        <input type="text" id="department" name="department">
+                    </div>
+                    <div class="form-group">
+                        <label for="return-date">復職予定日</label>
+                        <input type="date" id="return-date" name="return-date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 勤務条件の調整 -->
+            <div class="section">
+                <h2>1. 勤務条件の調整</h2>
+                <div class="checkbox-group">
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="work-hours" name="adjustments" value="勤務時間の短縮">
+                        <label for="work-hours">勤務時間の短縮<br><small>（例：9-17時 → 9-16時）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="overtime-limit" name="adjustments" value="残業時間の制限">
+                        <label for="overtime-limit">残業時間の制限<br><small>（例：月20時間以内）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="flexible-hours" name="adjustments" value="フレックスタイム制度の活用">
+                        <label for="flexible-hours">フレックスタイム制度の活用<br><small>（コアタイム以外は調整可能）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="work-days" name="adjustments" value="勤務日数の調整">
+                        <label for="work-days">勤務日数の調整<br><small>（例：週4日勤務から開始）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="remote-work" name="adjustments" value="テレワーク・在宅勤務の活用">
+                        <label for="remote-work">テレワーク・在宅勤務の活用<br><small>（週1-2日程度）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="break-time" name="adjustments" value="休憩時間の確保・延長">
+                        <label for="break-time">休憩時間の確保・延長<br><small>（15分休憩の追加等）</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 業務内容の調整 -->
+            <div class="section">
+                <h2>2. 業務内容の調整</h2>
+                <div class="checkbox-group">
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="workload-reduction" name="adjustments" value="業務量の段階的増加">
+                        <label for="workload-reduction">業務量の段階的増加<br><small>（復職1ヶ月目は50%程度から）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="priority-tasks" name="adjustments" value="優先業務の明確化">
+                        <label for="priority-tasks">優先業務の明確化<br><small>（重要度の高い業務から担当）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="complex-tasks" name="adjustments" value="複雑な業務の一時的回避">
+                        <label for="complex-tasks">複雑な業務の一時的回避<br><small>（判断を要する業務等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="deadline-adjustment" name="adjustments" value="締切の調整・余裕の確保">
+                        <label for="deadline-adjustment">締切の調整・余裕の確保<br><small>（通常より1-2日の余裕）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="new-projects" name="adjustments" value="新規プロジェクトへの参加制限">
+                        <label for="new-projects">新規プロジェクトへの参加制限<br><small>（既存業務に集中）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="support-assignment" name="adjustments" value="サポート要員の配置">
+                        <label for="support-assignment">サポート要員の配置<br><small>（業務分担・相談相手）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="training-adjustment" name="adjustments" value="研修・会議参加の調整">
+                        <label for="training-adjustment">研修・会議参加の調整<br><small>（必要最小限に限定）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="travel-restriction" name="adjustments" value="出張・外出業務の制限">
+                        <label for="travel-restriction">出張・外出業務の制限<br><small>（体力的負担の軽減）</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 物理的環境の調整 -->
+            <div class="section">
+                <h2>3. 物理的環境の調整</h2>
+                <div class="checkbox-group">
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="seating" name="adjustments" value="座席位置の配慮">
+                        <label for="seating">座席位置の配慮<br><small>（窓際、静かな場所等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="lighting" name="adjustments" value="照明の調整">
+                        <label for="lighting">照明の調整<br><small>（明るさ、ブルーライト対策）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="noise" name="adjustments" value="騒音対策">
+                        <label for="noise">騒音対策<br><small>（静かなエリアへの配置）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="rest-space" name="adjustments" value="休憩スペースの確保">
+                        <label for="rest-space">休憩スペースの確保<br><small>（リフレッシュできる場所）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="equipment" name="adjustments" value="作業用具の調整">
+                        <label for="equipment">作業用具の調整<br><small>（椅子、モニター、キーボード等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="temperature" name="adjustments" value="温度・湿度の調整">
+                        <label for="temperature">温度・湿度の調整<br><small>（快適な環境の維持）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="privacy" name="adjustments" value="プライバシーの確保">
+                        <label for="privacy">プライバシーの確保<br><small>（パーティション、個室の提供等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="accessibility" name="adjustments" value="アクセシビリティの改善">
+                        <label for="accessibility">アクセシビリティの改善<br><small>（段差の解消、手すりの設置等）</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 人間関係・コミュニケーションの調整 -->
+            <div class="section">
+                <h2>4. 人間関係・コミュニケーションの調整</h2>
+                <div class="checkbox-group">
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="regular-meetings" name="adjustments" value="定期面談の設定">
+                        <label for="regular-meetings">定期面談の設定<br><small>（上司との週1回面談等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="buddy-system" name="adjustments" value="バディ・メンター制度">
+                        <label for="buddy-system">バディ・メンター制度<br><small>（相談しやすい同僚の指定）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="team-explanation" name="adjustments" value="チームメンバーへの状況説明">
+                        <label for="team-explanation">チームメンバーへの状況説明<br><small>（理解と協力の依頼）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="meeting-participation" name="adjustments" value="会議参加の調整">
+                        <label for="meeting-participation">会議参加の調整<br><small>（必要最小限に限定）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="social-events" name="adjustments" value="懇親会等への参加配慮">
+                        <label for="social-events">懇親会等への参加配慮<br><small>（強制しない雰囲気作り）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="communication-style" name="adjustments" value="コミュニケーション方法の配慮">
+                        <label for="communication-style">コミュニケーション方法の配慮<br><small>（メール中心、急ぎでない限り電話回避等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="feedback-system" name="adjustments" value="フィードバック体制の構築">
+                        <label for="feedback-system">フィードバック体制の構築<br><small>（定期的な業務評価・相談）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="conflict-resolution" name="adjustments" value="人間関係トラブルの早期対応">
+                        <label for="conflict-resolution">人間関係トラブルの早期対応<br><small>（相談窓口の明確化）</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 健康管理・医療面のサポート -->
+            <div class="section">
+                <h2>5. 健康管理・医療面のサポート</h2>
+                <div class="checkbox-group">
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="medical-appointments" name="adjustments" value="通院時間の確保">
+                        <label for="medical-appointments">通院時間の確保<br><small>（定期受診のための時間調整）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="occupational-health" name="adjustments" value="産業医面談の実施">
+                        <label for="occupational-health">産業医面談の実施<br><small>（月1回程度の健康チェック）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="health-monitoring" name="adjustments" value="健康状態のモニタリング">
+                        <label for="health-monitoring">健康状態のモニタリング<br><small>（体調変化の早期発見）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="wellness-programs" name="adjustments" value="職場の健康プログラム活用">
+                        <label for="wellness-programs">職場の健康プログラム活用<br><small>（ストレッチ、メンタルヘルス講座等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="medication-management" name="adjustments" value="服薬管理への配慮">
+                        <label for="medication-management">服薬管理への配慮<br><small>（服薬時間の確保等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-high">
+                        <input type="checkbox" id="emergency-protocol" name="adjustments" value="緊急時対応プロトコル">
+                        <label for="emergency-protocol">緊急時対応プロトコル<br><small>（体調不良時の対応手順）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-medium">
+                        <input type="checkbox" id="stress-management" name="adjustments" value="ストレス管理支援">
+                        <label for="stress-management">ストレス管理支援<br><small>（カウンセリング、リラクゼーション等）</small></label>
+                    </div>
+                    <div class="checkbox-item priority-low">
+                        <input type="checkbox" id="health-education" name="adjustments" value="健康教育の提供">
+                        <label for="health-education">健康教育の提供<br><small>（メンタルヘルス研修等）</small></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- その他の配慮事項 -->
+            <div class="section">
+                <h2>6. その他の配慮事項</h2>
+                <div class="form-group">
+                    <label for="other-adjustments">その他必要な配慮・調整事項</label>
+                    <textarea id="other-adjustments" name="other-adjustments" class="large-textarea" placeholder="例：
+・特定の業務（プレゼンテーション等）への配慮
+・客先訪問や接客業務の制限
+・夜勤・交代勤務の調整
+・その他個別の事情による調整事項"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="temporary-permanent">一時的配慮 vs 恒久的配慮</label>
+                    <textarea id="temporary-permanent" name="temporary-permanent" placeholder="例：
+【一時的配慮（3-6ヶ月程度）】
+・勤務時間の短縮
+・業務量の調整
+
+【恒久的配慮】
+・定期面談の継続
+・産業医面談の実施"></textarea>
+                </div>
+            </div>
+
+            <!-- 実施スケジュールと優先順位 -->
+            <div class="section">
+                <h2>7. 実施スケジュールと優先順位</h2>
+                
+                <div class="form-group">
+                    <label for="priority-schedule">優先順位の高い調整事項と実施予定</label>
+                    <textarea id="priority-schedule" name="priority-schedule" class="large-textarea" placeholder="例：
+【最優先（復職初日から）】
+・勤務時間の短縮（9-16時）
+・定期面談の設定（週1回）
+・緊急時対応プロトコルの確認
+
+【優先（復職1週間以内）】
+・業務量の調整（50%から開始）
+・チームメンバーへの説明
+・サポート要員の配置
+
+【中期（復職1ヶ月以内）】
+・業務量の段階的増加
+・新規業務への参加検討
+・物理的環境の最終調整"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="review-schedule">調整内容の見直しスケジュール</label>
+                    <select id="review-schedule" name="review-schedule">
+                        <option value="">選択してください</option>
+                        <option value="weekly">週1回</option>
+                        <option value="biweekly">2週間に1回</option>
+                        <option value="monthly">月1回</option>
+                        <option value="quarterly">3ヶ月に1回</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 関係者との相談・合意 -->
+            <div class="section">
+                <h2>8. 関係者との相談・合意</h2>
+                
+                <div class="form-group">
+                    <label for="stakeholders">相談・合意が必要な関係者</label>
+                    <textarea id="stakeholders" name="stakeholders" placeholder="例：
+・直属の上司
+・人事担当者
+・産業医
+・チームメンバー
+・経営陣（必要に応じて）"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="discussion-points">話し合いで確認すべきポイント</label>
+                    <textarea id="discussion-points" name="discussion-points" class="large-textarea" placeholder="例：
+・調整内容の実現可能性
+・期間限定か継続的な配慮か
+・他の従業員への影響
+・業績評価への配慮
+・費用や設備の問題
+・法的要件の確認"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="agreement-documentation">合意内容の記録方法</label>
+                    <textarea id="agreement-documentation" name="agreement-documentation" placeholder="例：
+・書面による合意書の作成
+・人事記録への記載
+・定期的な見直し会議の設定
+・関係者への共有方法"></textarea>
+                </div>
+            </div>
+        </form>
+
+        <!-- 選択項目の要約 -->
+        <div class="summary-section">
+            <h3>🔍 選択項目の要約</h3>
+            <div id="selected-summary">
+                チェックした項目がここに表示されます。
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button type="button" class="download-btn" onclick="downloadAsWord()">Word形式でダウンロード</button>
+        </div>
+    </div>
+
+    <script>
+        // 今日の日付を自動設定
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+
+        // チェックボックスの変更を監視して要約を更新
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'checkbox' && e.target.name === 'adjustments') {
+                updateSummary();
+            }
+        });
+
+        function updateSummary() {
+            const checkedItems = [];
+            const checkboxes = document.querySelectorAll('input[name="adjustments"]:checked');
+            
+            checkboxes.forEach(cb => {
+                const priority = cb.closest('.checkbox-item').classList.contains('priority-high') ? '高' :
+                               cb.closest('.checkbox-item').classList.contains('priority-medium') ? '中' : '低';
+                checkedItems.push(`[${priority}] ${cb.value}`);
+            });
+
+            const summaryDiv = document.getElementById('selected-summary');
+            if (checkedItems.length > 0) {
+                summaryDiv.innerHTML = '<strong>選択された調整項目：</strong><br>' + 
+                                     checkedItems.map(item => `• ${item}`).join('<br>');
+            } else {
+                summaryDiv.textContent = 'チェックした項目がここに表示されます。';
+            }
+        }
+
+        function downloadAsWord() {
+            // フォームデータを収集
+            const formData = new FormData(document.getElementById('checklistForm'));
+            
+            // チェックボックスの値を収集
+            const adjustments = [];
+            document.querySelectorAll('input[name="adjustments"]:checked').forEach(cb => {
+                const priority = cb.closest('.checkbox-item').classList.contains('priority-high') ? '高優先度' :
+                               cb.closest('.checkbox-item').classList.contains('priority-medium') ? '中優先度' : '低優先度';
+                adjustments.push(`[${priority}] ${cb.value}`);
+            });
+
+            // WordドキュメントのHTMLを構築
+            let wordContent = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>職場環境調整チェックリスト</title>
+                    <style>
+                        body { font-family: 'Yu Gothic', 'MS Gothic', sans-serif; line-height: 1.6; margin: 40px; }
+                        h1 { text-align: center; color: #2c3e50; border-bottom: 3px solid #e74c3c; padding-bottom: 10px; }
+                        h2 { color: #34495e; border-left: 4px solid #e74c3c; padding-left: 15px; margin-top: 30px; }
+                        h3 { color: #2c3e50; margin-top: 20px; }
+                        .form-section { margin-bottom: 25px; page-break-inside: avoid; }
+                        .form-item { margin-bottom: 15px; }
+                        .label { font-weight: bold; color: #2c3e50; }
+                        .value { border-bottom: 1px solid #bdc3c7; min-height: 20px; padding: 5px 0; }
+                        .checkbox-list { margin-left: 20px; }
+                        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+                        td { padding: 8px; border: 1px solid #bdc3c7; }
+                        .high-priority { color: #e74c3c; font-weight: bold; }
+                        .medium-priority { color: #f39c12; font-weight: bold; }
+                        .low-priority { color: #27ae60; }
+                    </style>
+                </head>
+                <body>
+                    <h1>職場環境調整チェックリスト</h1>
+                    
+                    <div class="form-section">
+                        <h2>基本情報</h2>
+                        <table>
+                            <tr><td class="label">氏名</td><td class="value">${formData.get('name') || ''}</td></tr>
+                            <tr><td class="label">記入日</td><td class="value">${formData.get('date') || ''}</td></tr>
+                            <tr><td class="label">所属部署</td><td class="value">${formData.get('department') || ''}</td></tr>
+                            <tr><td class="label">復職予定日</td><td class="value">${formData.get('return-date') || ''}</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>選択された調整項目</h2>
+                        <div class="checkbox-list">
+                            ${adjustments.map(adjustment => `• ${adjustment}`).join('<br>')}
+                            ${adjustments.length === 0 ? '選択された項目はありません。' : ''}
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>6. その他の配慮事項</h2>
+                        <div class="form-item">
+                            <div class="label">その他必要な配慮・調整事項：</div>
+                            <div class="value">${(formData.get('other-adjustments') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">一時的配慮 vs 恒久的配慮：</div>
+                            <div class="value">${(formData.get('temporary-permanent') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>7. 実施スケジュールと優先順位</h2>
+                        <div class="form-item">
+                            <div class="label">優先順位の高い調整事項と実施予定：</div>
+                            <div class="value">${(formData.get('priority-schedule') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">調整内容の見直しスケジュール：</div>
+                            <div class="value">${formData.get('review-schedule') || ''}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>8. 関係者との相談・合意</h2>
+                        <div class="form-item">
+                            <div class="label">相談・合意が必要な関係者：</div>
+                            <div class="value">${(formData.get('stakeholders') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">話し合いで確認すべきポイント：</div>
+                            <div class="value">${(formData.get('discussion-points') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">合意内容の記録方法：</div>
+                            <div class="value">${(formData.get('agreement-documentation') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>優先度の説明</h2>
+                        <p><span class="high-priority">高優先度（必須）</span>：復職に不可欠な調整事項</p>
+                        <p><span class="medium-priority">中優先度（推奨）</span>：復職をスムーズにするための推奨事項</p>
+                        <p><span class="low-priority">低優先度（希望）</span>：可能であれば実施したい事項</p>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // BOMを追加してUTF-8エンコーディングを明示
+            const BOM = '\uFEFF';
+            const blob = new Blob([BOM + wordContent], {
+                type: 'application/msword;charset=utf-8'
+            });
+            
+            // ダウンロードリンクを作成
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `職場環境調整チェックリスト_${formData.get('name') || '未記入'}_${formData.get('date') || new Date().toISOString().split('T')[0]}.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

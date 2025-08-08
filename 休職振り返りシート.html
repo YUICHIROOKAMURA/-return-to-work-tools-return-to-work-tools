@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>休職振り返りシート</title></title>
+    <style>
+        body {
+            font-family: 'Yu Gothic', 'Hiragino Sans', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .large-textarea {
+            min-height: 120px;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        .download-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 10px;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+        .info-box {
+            background-color: #e8f4f8;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #0c5460;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+        .stress-scale {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .scale-item {
+            text-align: center;
+            flex: 1;
+        }
+        .scale-item input[type="radio"] {
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>休職振り返りシート</h1></h1>
+        
+        <div class="info-box">
+            <p>このワークシートは、休職に至った経緯を振り返り、復職に向けた具体的な対処法を検討するためのものです。じっくりと時間をかけて記入してください。</p>
+        </div>
+
+        <form id="worksheetForm">
+            <!-- 基本情報 -->
+            <div class="section">
+                <h2>基本情報</h2>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="name">氏名</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">記入日</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="leave-start">休職開始日</label>
+                        <input type="date" id="leave-start" name="leave-start">
+                    </div>
+                    <div class="form-group">
+                        <label for="return-target">復職予定日</label>
+                        <input type="date" id="return-target" name="return-target">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 休職に至った経緯 -->
+            <div class="section">
+                <h2>休職に至った経緯の振り返り</h2>
+                
+                <h3>1. 主な原因・きっかけ</h3>
+                <div class="form-group">
+                    <label>該当するものにチェックを入れてください（複数選択可）</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work-overload" name="causes" value="業務過多">
+                            <label for="work-overload">業務過多</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="workplace-relationships" name="causes" value="職場の人間関係">
+                            <label for="workplace-relationships">職場の人間関係</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="role-mismatch" name="causes" value="役割・責任の不明確さ">
+                            <label for="role-mismatch">役割・責任の不明確さ</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="work-environment" name="causes" value="職場環境">
+                            <label for="work-environment">職場環境</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="personal-issues" name="causes" value="個人的な問題">
+                            <label for="personal-issues">個人的な問題</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="health-issues" name="causes" value="健康上の問題">
+                            <label for="health-issues">健康上の問題</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="other-cause" name="causes" value="その他">
+                            <label for="other-cause">その他</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cause-detail">具体的な状況や出来事を詳しく記述してください</label>
+                    <textarea id="cause-detail" name="cause-detail" class="large-textarea" placeholder="例：プロジェクトの責任者となり、複数の案件を同時進行で担当することになった。残業が続き、休日出勤も増えた。上司からのプレッシャーも強く..."></textarea>
+                </div>
+
+                <h3>2. ストレス度の変化</h3>
+                <div class="form-group">
+                    <label>休職前のストレス度（10段階）</label>
+                    <div class="stress-scale">
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-1" name="stress-before" value="1">
+                            <label for="stress-before-1">1<br>低い</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-2" name="stress-before" value="2">
+                            <label for="stress-before-2">2</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-3" name="stress-before" value="3">
+                            <label for="stress-before-3">3</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-4" name="stress-before" value="4">
+                            <label for="stress-before-4">4</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-5" name="stress-before" value="5">
+                            <label for="stress-before-5">5</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-6" name="stress-before" value="6">
+                            <label for="stress-before-6">6</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-7" name="stress-before" value="7">
+                            <label for="stress-before-7">7</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-8" name="stress-before" value="8">
+                            <label for="stress-before-8">8</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-9" name="stress-before" value="9">
+                            <label for="stress-before-9">9</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-before-10" name="stress-before" value="10">
+                            <label for="stress-before-10">10<br>高い</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>現在のストレス度（10段階）</label>
+                    <div class="stress-scale">
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-1" name="stress-now" value="1">
+                            <label for="stress-now-1">1<br>低い</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-2" name="stress-now" value="2">
+                            <label for="stress-now-2">2</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-3" name="stress-now" value="3">
+                            <label for="stress-now-3">3</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-4" name="stress-now" value="4">
+                            <label for="stress-now-4">4</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-5" name="stress-now" value="5">
+                            <label for="stress-now-5">5</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-6" name="stress-now" value="6">
+                            <label for="stress-now-6">6</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-7" name="stress-now" value="7">
+                            <label for="stress-now-7">7</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-8" name="stress-now" value="8">
+                            <label for="stress-now-8">8</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-9" name="stress-now" value="9">
+                            <label for="stress-now-9">9</label>
+                        </div>
+                        <div class="scale-item">
+                            <input type="radio" id="stress-now-10" name="stress-now" value="10">
+                            <label for="stress-now-10">10<br>高い</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>3. 症状・変化</h3>
+                <div class="form-group">
+                    <label for="symptoms">休職前に現れた症状や変化について記述してください</label>
+                    <textarea id="symptoms" name="symptoms" placeholder="例：不眠、食欲不振、集中力の低下、イライラしやすくなった、朝起きるのが辛い..."></textarea>
+                </div>
+
+                <h3>4. 対処しようとしたこと</h3>
+                <div class="form-group">
+                    <label for="attempted-solutions">休職前に問題解決のために試したことがあれば記述してください</label>
+                    <textarea id="attempted-solutions" name="attempted-solutions" placeholder="例：上司に相談した、残業時間を減らそうと努力した、同僚に協力を求めた..."></textarea>
+                </div>
+            </div>
+
+            <!-- 現在の状況 -->
+            <div class="section">
+                <h2>現在の状況</h2>
+                
+                <h3>1. 心身の状態</h3>
+                <div class="form-group">
+                    <label for="current-condition">現在の心身の状態について記述してください</label>
+                    <textarea id="current-condition" name="current-condition" placeholder="例：睡眠は改善されてきた、まだ疲れやすいが以前より体調は良い、気分の波がある..."></textarea>
+                </div>
+
+                <h3>2. 休職中に取り組んだこと</h3>
+                <div class="form-group">
+                    <label for="recovery-activities">回復のために取り組んだことを記述してください</label>
+                    <textarea id="recovery-activities" name="recovery-activities" placeholder="例：規則正しい生活、運動、読書、医療機関での治療、カウンセリング..."></textarea>
+                </div>
+
+                <h3>3. 学んだこと・気づいたこと</h3>
+                <div class="form-group">
+                    <label for="insights">休職期間を通じて学んだことや気づいたことを記述してください</label>
+                    <textarea id="insights" name="insights" placeholder="例：自分のストレスサインに気づけるようになった、無理をしすぎていたことがわかった..."></textarea>
+                </div>
+            </div>
+
+            <!-- 復職に向けた対処法 -->
+            <div class="section">
+                <h2>復職に向けた対処法</h2>
+                
+                <h3>1. 予想される課題</h3>
+                <div class="form-group">
+                    <label for="expected-challenges">復職後に予想される課題や不安を記述してください</label>
+                    <textarea id="expected-challenges" name="expected-challenges" placeholder="例：同じ問題が再発する可能性、職場の人との関係、仕事のペースについていけるか..."></textarea>
+                </div>
+
+                <h3>2. 具体的な対処策</h3>
+                <div class="form-group">
+                    <label for="coping-strategies">上記の課題に対する具体的な対処策を記述してください</label>
+                    <textarea id="coping-strategies" name="coping-strategies" class="large-textarea" placeholder="例：
+・週1回上司との面談を設定してもらう
+・残業時間の上限を決める
+・ストレスを感じたときの対処法を実践する
+・定期的に医療機関を受診する"></textarea>
+                </div>
+
+                <h3>3. セルフケア計画</h3>
+                <div class="form-group">
+                    <label for="self-care-plan">継続的なセルフケアの計画を記述してください</label>
+                    <textarea id="self-care-plan" name="self-care-plan" placeholder="例：
+・毎日30分の散歩
+・週末は仕事のことを考えない時間を作る
+・月1回のカウンセリング継続
+・睡眠時間を7時間確保する"></textarea>
+                </div>
+
+                <h3>4. サポート体制</h3>
+                <div class="form-group">
+                    <label for="support-system">復職後のサポート体制について記述してください</label>
+                    <textarea id="support-system" name="support-system" placeholder="例：
+・家族の理解と協力
+・職場の上司・同僚への状況説明
+・産業医との面談
+・主治医の継続診療"></textarea>
+                </div>
+
+                <h3>5. 復職後の目標</h3>
+                <div class="form-group">
+                    <label for="goals">復職後の短期・中期的な目標を記述してください</label>
+                    <textarea id="goals" name="goals" placeholder="例：
+【短期目標（1-3ヶ月）】
+・フルタイム勤務に慣れる
+・新しい業務に取り組む
+
+【中期目標（6ヶ月-1年）】
+・チームリーダーの役割を果たす
+・ワークライフバランスを保つ"></textarea>
+                </div>
+            </div>
+
+            <!-- 緊急時対応 -->
+            <div class="section">
+                <h2>緊急時対応計画</h2>
+                
+                <h3>1. 警告サイン</h3>
+                <div class="form-group">
+                    <label for="warning-signs">注意すべき警告サインを記述してください</label>
+                    <textarea id="warning-signs" name="warning-signs" placeholder="例：
+・3日以上不眠が続く
+・食欲が全くなくなる
+・仕事に行くのが困難になる
+・イライラが抑えられない"></textarea>
+                </div>
+
+                <h3>2. 対応手順</h3>
+                <div class="form-group">
+                    <label for="emergency-plan">警告サインが現れた場合の対応手順を記述してください</label>
+                    <textarea id="emergency-plan" name="emergency-plan" placeholder="例：
+1. 上司に相談する
+2. 主治医に連絡する
+3. 家族に状況を伝える
+4. 必要に応じて休暇を取る"></textarea>
+                </div>
+
+                <h3>3. 相談先</h3>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="doctor-contact">主治医・医療機関</label>
+                        <input type="text" id="doctor-contact" name="doctor-contact" placeholder="医院名・電話番号">
+                    </div>
+                    <div class="form-group">
+                        <label for="family-contact">家族・身近な相談相手</label>
+                        <input type="text" id="family-contact" name="family-contact" placeholder="氏名・電話番号">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="supervisor-contact">職場上司・人事担当</label>
+                        <input type="text" id="supervisor-contact" name="supervisor-contact" placeholder="氏名・電話番号">
+                    </div>
+                    <div class="form-group">
+                        <label for="counselor-contact">カウンセラー・臨床心理士</label>
+                        <input type="text" id="counselor-contact" name="counselor-contact" placeholder="氏名・連絡先">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="occupational-contact">産業医・産業保健師</label>
+                        <input type="text" id="occupational-contact" name="occupational-contact" placeholder="氏名・連絡先">
+                    </div>
+                    <div class="form-group">
+                        <label for="eap-contact">EAP（従業員支援プログラム）</label>
+                        <input type="text" id="eap-contact" name="eap-contact" placeholder="機関名・電話番号">
+                    </div>
+                </div>
+                <div class="two-column">
+                    <div class="form-group">
+                        <label for="public-contact">公的相談機関</label>
+                        <input type="text" id="public-contact" name="public-contact" placeholder="例：こころの健康相談統一ダイヤル 0570-064-556">
+                    </div>
+                    <div class="form-group">
+                        <label for="other-contact">その他</label>
+                        <input type="text" id="other-contact" name="other-contact" placeholder="氏名・連絡先">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button type="button" class="download-btn" onclick="downloadAsWord()">Word形式でダウンロード</button>
+        </div>
+    </div>
+
+    <script>
+        // 今日の日付を自動設定
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+
+        function downloadAsWord() {
+            // フォームデータを収集
+            const formData = new FormData(document.getElementById('worksheetForm'));
+            
+            // チェックボックスの値を収集
+            const causes = [];
+            document.querySelectorAll('input[name="causes"]:checked').forEach(cb => {
+                causes.push(cb.value);
+            });
+
+            // WordドキュメントのHTMLを構築
+            let wordContent = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>休職振り返りシート</title></title>
+                    <style>
+                        body { font-family: 'Yu Gothic', 'MS Gothic', sans-serif; line-height: 1.6; margin: 40px; }
+                        h1 { text-align: center; color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+                        h2 { color: #34495e; border-left: 4px solid #3498db; padding-left: 15px; margin-top: 30px; }
+                        h3 { color: #2c3e50; margin-top: 20px; }
+                        .form-section { margin-bottom: 25px; }
+                        .form-item { margin-bottom: 15px; }
+                        .label { font-weight: bold; color: #2c3e50; }
+                        .value { border-bottom: 1px solid #bdc3c7; min-height: 20px; padding: 5px 0; }
+                        .checkbox-list { margin-left: 20px; }
+                        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+                        td { padding: 8px; border: 1px solid #bdc3c7; }
+                    </style>
+                </head>
+                <body>
+                    <h1>休職振り返りシート</h1></h1>
+                    
+                    <div class="form-section">
+                        <h2>基本情報</h2>
+                        <table>
+                            <tr><td class="label">氏名</td><td class="value">${formData.get('name') || ''}</td></tr>
+                            <tr><td class="label">記入日</td><td class="value">${formData.get('date') || ''}</td></tr>
+                            <tr><td class="label">休職開始日</td><td class="value">${formData.get('leave-start') || ''}</td></tr>
+                            <tr><td class="label">復職予定日</td><td class="value">${formData.get('return-target') || ''}</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>休職に至った経緯の振り返り</h2>
+                        
+                        <h3>1. 主な原因・きっかけ</h3>
+                        <div class="checkbox-list">
+                            ${causes.map(cause => `☑ ${cause}`).join('<br>')}
+                        </div>
+                        
+                        <div class="form-item">
+                            <div class="label">具体的な状況や出来事：</div>
+                            <div class="value">${(formData.get('cause-detail') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>2. ストレス度の変化</h3>
+                        <div class="form-item">
+                            <div class="label">休職前のストレス度：</div>
+                            <div class="value">${formData.get('stress-before') || ''}/10</div>
+                        </div>
+                        <div class="form-item">
+                            <div class="label">現在のストレス度：</div>
+                            <div class="value">${formData.get('stress-now') || ''}/10</div>
+                        </div>
+
+                        <h3>3. 症状・変化</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('symptoms') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>4. 対処しようとしたこと</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('attempted-solutions') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>現在の状況</h2>
+                        
+                        <h3>1. 心身の状態</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('current-condition') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>2. 休職中に取り組んだこと</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('recovery-activities') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>3. 学んだこと・気づいたこと</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('insights') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>復職に向けた対処法</h2>
+                        
+                        <h3>1. 予想される課題</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('expected-challenges') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>2. 具体的な対処策</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('coping-strategies') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>3. セルフケア計画</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('self-care-plan') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>4. サポート体制</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('support-system') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>5. 復職後の目標</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('goals') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>緊急時対応計画</h2>
+                        
+                        <h3>1. 警告サイン</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('warning-signs') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>2. 対応手順</h3>
+                        <div class="form-item">
+                            <div class="value">${(formData.get('emergency-plan') || '').replace(/\n/g, '<br>')}</div>
+                        </div>
+
+                        <h3>3. 相談先</h3>
+                        <table>
+                            <tr><td class="label">主治医・医療機関</td><td class="value">${formData.get('doctor-contact') || ''}</td></tr>
+                            <tr><td class="label">家族・身近な相談相手</td><td class="value">${formData.get('family-contact') || ''}</td></tr>
+                            <tr><td class="label">職場上司・人事担当</td><td class="value">${formData.get('supervisor-contact') || ''}</td></tr>
+                            <tr><td class="label">カウンセラー・臨床心理士</td><td class="value">${formData.get('counselor-contact') || ''}</td></tr>
+                            <tr><td class="label">産業医・産業保健師</td><td class="value">${formData.get('occupational-contact') || ''}</td></tr>
+                            <tr><td class="label">EAP（従業員支援プログラム）</td><td class="value">${formData.get('eap-contact') || ''}</td></tr>
+                            <tr><td class="label">公的相談機関</td><td class="value">${formData.get('public-contact') || ''}</td></tr>
+                            <tr><td class="label">その他</td><td class="value">${formData.get('other-contact') || ''}</td></tr>
+                        </table>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // BOMを追加してUTF-8エンコーディングを明示
+            const BOM = '\uFEFF';
+            const blob = new Blob([BOM + wordContent], {
+                type: 'application/msword;charset=utf-8'
+            });
+            
+            // ダウンロードリンクを作成
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `休職振り返りシート_${formData.get('name') || '未記入'}_${formData.get('date') || new Date().toISOString().split('T')[0]}.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
